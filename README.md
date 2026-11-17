@@ -10,10 +10,10 @@ In case this sounds familiar, perhaps you've played or at least heard of [Whamag
 
 First, you need to decide which song list you're playing, the short list or the full list. The short list has 25 songs and every card has the same 25 songs arranged at random. The full list has 75 songs (the 25 from the short list plus 50 more) and each card has 25 chosen randomly from among those 75. The short list version is harder to win if I've done a good job of identifying which 25 songs are hardest to avoid. The full list, besides being easier to win, has more variety and could make the game more interesting if you're playing multiple cards or have a large group playing the game.
 
-Second, you need bingo cards. Option one is to use the .pdf files included in this repository. These have a hundred cards each, one with short list cards and the other with full list cards. You can print as many pages from these as you need.
+Second, you need bingo cards. You have two options here. The first option is the two .pdf files included in this repository. These have 100 cards each, one with short list cards and the other with full list cards. You can print as many pages from these as you need.
 
-Option two is to use the spreadsheet:
-1. Download and open the spreadsheet.
+The second option is to use the spreadsheet:
+1. Download and open the spreadsheet (the .ods or the .xls file in the repository; either should work).
 2. You will see two tabs at the bottom, 'Short List' and 'Full List'. Select one of these.
 3. Edit the number in the cell to the right of 'Card #:' to any number you like and press enter or click any other cell to make the card update.
 4. Print the card; depending on your setup you may be able to print-to-file or print-to-PDF if that works better for you.
@@ -40,26 +40,32 @@ A: I don't actually remember how or when I first thought of creating a 'Whamaged
 Q: What about the song list?  
 A: Ah, yes. I ran a bunch of web searches for lists of most annoying and most overplayed holiday songs, and lists of the most popular Christmas songs. I posted a query on Reddit and received a lot of helpful responses. One resource I used was [The Billboard Holiday 100](https://www.billboard.com/charts/hot-holiday-songs/). On the question of whether to keep it to 25 songs or incorporate more, I ended up making two versions of the game, the short list and the full list. For the full list I chose the number 75 because it's what's used in the normal game of bingo, plus it felt like about the right amount to cut it off at to avoid diluting the game too much with less overplayed songs. For the short list, I decided to include only one song by any artist and only one version of any song. For the full list I'm allowing two per artist and two versions of any song (possibly more for parodies). It's better to have more artists represented in the list than to have a sizable chunk of it taken up by Bing Crosby and Michael Bublé.
 
+Q: There are songs I think should (or shouldn't) be on the short and/or full lists!  
+A: The current lists are pretty much a done deal for 2026, but I'll be revisiting the song lists for next year and would be glad to hear your opinions and suggestions for future year updates.
+
+Q: Why Christmas when there are several other seasonal holidays that time of year?  
+A: Mostly because none of those other holidays have such a glut of music that we can't avoid hearing that time of year. When is the last time you heard any song related to Hanukkah and thought you were tired of hearing it every year? If anything the game is less a celebration of Christmas than an indictment of a music industry that keeps feeding us the same short playlist of songs year after year. Also note that some of the songs don't mention Christmas, Santa Claus, or the nativity at all, such as *Jingle Bells* and *Winter Wonderland*.
+
 Q: Why isn't there a free square in the middle?  
 A: I could have included one, but that would make the game easier to lose. Is that what you really want? But if you really want one, feel free (no pun intended) to edit the contents of that square in the spreadsheet.
 
 Q: What programs does the spreadsheet work with?  
-A: I developed it using OpenOffice Calc. It's been tested with Excel [editions?] and Google Sheets. If you try it with others, please tell me the results, especially if something doesn't work and you're able to tweak it.
+A: I developed it using OpenOffice Calc. I uploaded it to Google Sheets and it apparently works well. I don't have Microsoft Excel on my computer and haven't been able to test it as well as I would like to have, but it worked okay when tried it in [Excel for the Web](https://excel.cloud.microsoft/). If you try it with others, please tell me the results, especially if something doesn't work and you're able to fix it.
 
 Q: What's in those hidden rows of the spreadsheet?  
 A: The song list and a random number generator. You're welcome to unhide the rows and study them if you wish, but I highly recommend having those rows hidden when printing bingo cards; otherwise it will print those rows and you'll end up wasting paper and printer ink.
 
 Q: What kind of random number generator is that and why did you do it that way?  
-A: First of all, I decided against using the spreadsheet's RAND function because there was no way to set a seed that would give me a reproducible sequence of pseudo-random numbers, especially not across different spreadsheet software. I wanted the bingo cards to be reproducible by anyone anywhere, an idea I got from the old Windows solitaire game Freecell. So basically I rolled my own random number generator, a linear congruential generator (https://en.wikipedia.org/wiki/Linear_congruential_generator), using arithmetic functions that should be standard across all spreadsheet software. The RNG cycles N times (where N is the number of songs in the list) and uses the RANK and INDEX functions to populate the squares of the bingo card.
+A: First of all, I decided against using the spreadsheet's RAND function because there was no way to set a seed that would give me a reproducible sequence of pseudo-random numbers, especially not across different spreadsheet software. I wanted the bingo cards to be reproducible by anyone anywhere, an idea I got from the old Windows solitaire game Freecell. So basically I rolled my own random number generator, a [linear congruential generator](https://en.wikipedia.org/wiki/Linear_congruential_generator), using arithmetic functions that should be standard across all spreadsheet software. The RNG cycles N times (where N is the number of songs in the list) and uses the RANK and INDEX functions to populate the squares of the bingo card.
 
 Q: What card numbers are valid?  
 A: It should work for any integer between 0 and 2,147,483,647 (max int 32). If you need more bingo cards than that, I'd really like to know what you're doing with the game. I've experimented with negative numbers and decimal numbers and they worked, but I won't guarantee those will work correctly or reproducibly in all cases.
 
 Q: It's not even Thanksgiving and I've already heard several songs on the list!  
-A: First of all, that's not a question. Second of all, relax! The game doesn't start until December 1st. The same goes for Christmas Day when the game is already over. If it's still November (I'm assuming you meant US Thanksgiving, not Canadian Thanksgiving), it might be a good time to listen to, familiarize yourself with, and enjoy the songs you'll be trying to avoid for 24 days.
+A: Relax! The game doesn't start until December 1st. The same goes for Christmas Day when the game is already over. If it's still November (I'm assuming you meant US Thanksgiving, not Canadian Thanksgiving), it might be a good time to listen to, familiarize yourself with, and enjoy the songs you'll be trying to avoid for 24 days.
 
 Q: Can I make up my own game that uses your bingo cards? Can I modify your game to use a different song list?  
 A: Of course! This is GitHub. If you want to make up your own rules or your own song list, you're welcome to.
 
 Q: Can I send you money?  
-A: I don't need your money. I'd be much more interested in hearing about what you do with the game and how it goes.
+A: I don't want your money. I'd much rather hear about what you do with the game and how it goes.
